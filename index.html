@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kriha.</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <header class="header-menu">
+        <div class="logo-container">
+            <img class="logo" alt="Logo" src="images/krihalogo.png" width="181" height="31">
+        </div>
+
+        <a class="menu-link" href="/a_propos.html"><i class="fas fa-address-card"></i> A propos de Kriha</a>
+        <a class="menu-link" href="#portfolio"><i class="fas fa-puzzle-piece"></i> Catégories</a>
+        <a class="menu-link" href="#inscription"><i class="fas fa-user"></i> Se connecter | S'inscrire</a>
+    </header>
+
+    <!-- Slogan -->
+    <div id="slogan">
+        <div class="container">
+            <div class="header-text">
+                <div>
+                    <h2>Louer pour économiser</h2>
+                    <h2>Louer pour <span class="rose">gagner</span></h2>
+                </div>
+                <img src="images/logo_svg.svg" alt="logo_kriha">
+            </div>
+        </div>
+    </div>
+
+    <!-- Services -->
+    <div id="services">
+        <div class="container">
+            <div class="serviceslist">
+                <div class="service-box">
+                    <h2 onclick="window.location.href='mettre-en-location.html'" class="clickable">Mettre En Location</h2>
+                    <p>Générez des revenus en louant vos biens en toute simplicité.</p>
+                    <a href="a_propos.html" class="underline-effect">Connaitre Les Avantages</a>
+                </div>
+                <div class="service-box">
+                    <h2 onclick="window.location.href='demander-location.html'" class="clickable">Demander Une Location</h2>
+                    <p>Louez ce dont vous avez besoin, quand vous en avez besoin.</p>
+                    <a href="a_propos.html" class="underline-effect">Connaitre Les Avantages</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio -->
+    <div id="portfolio">
+        <div class="container">
+            <h6 class="subtitle">Catégories Populaires En Location</h6>
+            <div class="worklist">
+                <div class="work"><img src="images/mode.png"><div class="layer"><a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div>
+                <div class="work"><img src="images/vehicules.png"><div class="layer"><a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div>
+                <div class="work"><img src="images/loisirs.png"><div class="layer"><a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div>
+                <div class="work"><img src="images/bricolage.png"><div class="layer"><a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div>
+            </div>
+            <div class="worklist hidden" id="moreCategories">
+                <div class="work"><img src="images/sorties.png"><div class="layer"><a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div>
+                <div class="work"><img src="images/evennements.png"><div class="layer"><a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div>
+                <div class="work"><img src="images/santé.png"><div class="layer"><a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div>
+                <div class="work"><img src="images/immobilier.png"><div class="layer"><a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div>
+                <div class="work"><img src="images/autre.png"><div class="layer"><a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div>
+            </div>
+            <a class="btn" id="showMoreBtn">Voir plus</a>
+        </div>
+    </div>
+
+    <!-- Connexion Google -->
+    <div id="inscription">
+        <div class="auth-section">
+            <h3>Connexion avec Google</h3>
+            <button id="signInWithGoogle" class="btn btn2"><i class="fab fa-google"></i> Se connecter avec Google</button>
+            <div id="userStatus">Non connecté</div>
+        </div>
+        <div id="auth-status" class="auth-status"></div>
+    </div>
+
+    <!-- Contact -->
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contactleft">
+                    <h1 class="subtitle">Contacts</h1>
+                    <p><i class="fa-solid fa-paper-plane"></i>algeriekriha@gmail.com</p>
+                    <div class="social-icons">
+                        <a><i class="fa-brands fa-facebook"></i></a>
+                        <a><i class="fa-brands fa-twitter-square"></i></a>
+                        <a><i class="fa-brands fa-instagram"></i></a>
+                        <a><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                    <a href="images/conditions d'utilisations.docx.pdf" download class="btn btn2">Règles de confidentialité</a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Kriha. Made with <i class="fa-solid fa-heart"></i> All rights reserved</p>
+        </div>
+    </div>
+    <!-- Script Supabase intégré -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    // 🔐 Configuration Supabase
+// First, make sure the Supabase JavaScript library is loaded
+// Add this script tag to your HTML before your script:
+// <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+// Then initialize the client
+const supabaseUrl = 'https://nlzqliysckounyztdqfo.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...'; // replace with your actual key
+const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+// 🔄 Vérification si utilisateur connecté
+async function checkUser() {
+  const { data, error } = await supabase.auth.getUser();
+  const statusEl = document.getElementById('userStatus');
+  if (data?.user) {
+    const name = data.user.user_metadata.full_name || data.user.email;
+    statusEl.innerText = `Connecté en tant que ${name}`;
+    console.log("✅ Utilisateur connecté :", name);
+  } else {
+    statusEl.innerText = 'Non connecté';
+    console.log("⚠️ Aucun utilisateur connecté");
+  }
+}
+
+// 🔔 Suivi automatique des connexions
+supabase.auth.onAuthStateChange((event, session) => {
+  console.log("🔁 Auth event:", event);
+  if (event === 'SIGNED_IN' && session) {
+    checkUser();
+    saveUser(session.user);
+  } else if (event === 'SIGNED_OUT') {
+    document.getElementById('userStatus').innerText = 'Non connecté';
+  }
+});
+
+// 💾 Enregistrement de l'utilisateur
+async function saveUser(user) {
+  const { error } = await supabase
+    .from('users')
+    .upsert({
+      id: user.id,
+      email: user.email,
+      name: user.user_metadata.full_name,
+      avatar_url: user.user_metadata.avatar_url,
+      last_sign_in: new Date()
+    });
+  if (error) {
+    console.error("❌ Erreur enregistrement user :", error.message);
+  } else {
+    console.log("📥 Utilisateur enregistré");
+  }
+}
+
+// 🔘 Connexion via Google
+document.getElementById('signInWithGoogle').addEventListener('click', async () => {
+  const { error } = await supabase.auth.signInWithOAuth({
+    provider: 'google',
+    options: {
+      redirectTo: 'https://louizaferiel.github.io/Kriha_startup/' // très important
+    }
+  });
+  if (error) {
+    console.error("❌ Erreur connexion Google :", error.message);
+  }
+});
+
+// ✅ Au chargement de la page
+document.addEventListener('DOMContentLoaded', () => {
+  checkUser();
+});
+
+</script>
+
+    
+</body>
+</html>
